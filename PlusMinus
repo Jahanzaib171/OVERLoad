@@ -1,0 +1,111 @@
+using System;
+using System.Linq.Expressions;
+
+namespace overload
+{
+    
+       interface IAdd
+        {
+        void add(int a, int b);
+        void add(int a, int b, int c);
+
+
+    }
+        
+    interface ISub
+    {
+        void sub(int a, int b);
+        void sub(int a, int b, int c);
+    }
+    public class calculator : IAdd, ISub
+    {
+        public void add(int a, int b)
+        {
+            int sum = a + b;
+            Console.WriteLine(sum);
+        }
+
+        public void add(int a, int b, int c)
+        {
+            int sum = a + b+c;
+            Console.WriteLine(sum);
+        }
+
+        public void sub(int a, int b)
+        {
+
+            int sub = a - b;
+            Console.WriteLine(sub);
+        }
+
+        public void sub(int a, int b, int c)
+        {
+
+            int sub = a - b;
+            Console.WriteLine(sub);
+        }
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            calculator cal = new calculator();
+            Console.WriteLine("enter 1 for addition");
+            Console.WriteLine("enter 2 for substraction");
+            int x = Convert.ToInt32(Console.ReadLine());
+            switch (x)
+            {
+                case 1:
+                    Console.WriteLine("how many number for operation");
+                  int p =Convert.ToInt32 (Console.ReadLine());
+                    if (p == 2)
+                    {
+                        Console.WriteLine("enter first number");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("enter first number");
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        cal.add(a, b);
+                    }
+                    else if (p == 3)
+                    {
+                        Console.WriteLine("enter first number");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("enter first number");
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("enter first number");
+                        int c = Convert.ToInt32(Console.ReadLine());
+                        cal.add(a, b,c);
+                    }
+                    break;
+                case 2:
+                    Console.WriteLine("how many number for operation");
+                    int q = Convert.ToInt32(Console.ReadLine());
+                    if (q== 2)
+                    {
+                        Console.WriteLine("enter first number");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("enter first number");
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        cal.sub(a, b);
+                    }
+                    else if (q == 3)
+                    {
+                        Console.WriteLine("enter first number");
+                        int a = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("enter first number");
+                        int b = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("enter first number");
+                        int c = Convert.ToInt32(Console.ReadLine());
+                        cal.sub(a, b, c);
+                    }
+                    break;
+
+                 
+                default:
+                    Console.WriteLine("you enter the wrong input");
+                    break;
+            }
+
+        }
+    }
+}
